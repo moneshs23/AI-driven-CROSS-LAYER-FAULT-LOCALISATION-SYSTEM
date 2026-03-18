@@ -1,0 +1,2 @@
+# AI-driven-CROSS-LAYER-FAULT-LOCALISATION-SYSTEM
+Tanfinet Fault Detector is a modular, AI-driven monitoring ecosystem designed to automate and accelerate fault localization across multi-layer telecom networks. Utilizing a Temporal Fusion Transformer (TFT) backend, the system converts real-time telemetry into seconds-long, actionable diagnostics, reducing manual intervention from hours to seconds.
