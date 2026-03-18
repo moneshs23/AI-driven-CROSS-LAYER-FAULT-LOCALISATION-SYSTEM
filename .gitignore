@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Node.js
+node_modules/
+.DS_Store
+dist/
+dist-ssr/
+*.local
+
+# Project specific
+backend/venv/
+frontend/node_modules/
+frontend/dist/

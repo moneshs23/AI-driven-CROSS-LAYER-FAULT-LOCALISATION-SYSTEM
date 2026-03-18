@@ -1,31 +1,86 @@
-# AI-driven-CROSS-LAYER-FAULT-LOCALISATION-SYSTEM
-Fault Detector is a modular, AI-driven monitoring ecosystem designed to automate and accelerate fault localization across multi-layer telecom networks. By leveraging a Temporal Fusion Transformer (TFT) and Large Language Models (LLMs), it transforms traditional manual troubleshooting into a real-time, actionable diagnostic process.
-🚀 Key Features
-Hierarchical Topology Traversal: Automatically isolates failing segments across NOC, BLOCK, GP, OLT, and ONT layers.
-AI-Driven Anomaly Detection: Utilizes a TFT backend to analyze telemetry patterns and identify abnormal behavior in seconds.
-LLM-Based Root Cause Analysis: Interprets telemetry and topology context to classify faults and recommend corrective actions.
-Brutalist NOC Visualization: A React-based dashboard featuring cascading fault simulations, blinking nodes, and path isolation.
-Automated Reporting: Generates structured JSON diagnostics delivered via dashboard panels and outage reports.
-🏗️ Architecture
-The system follows a modular data flow pipeline:
-Network Topology → Telemetry Generation → AI Backend → Fault Diagnosis → NOC Visualization
-Components
-Frontend: React + TypeScript (Interactive topology & fault injection).
-Simulation Engine: Generates realistic metrics (Latency, Packet Loss, Optical Power, CRC errors).
-AI Backend: FastAPI + ML (TFT for anomalies) + LLM (Reasoning).
-🛠️ Tech Stack
-Frontend: React, TypeScript, Tailwind CSS
-Backend: FastAPI, Python
-Machine Learning: PyTorch/TensorFlow (Temporal Fusion Transformer)
-AI: LLM Integration (for diagnostic explanation)
-Data Handling: JSON-based structured reporting
-🎯 Key Contributions
-Precision: Automated identification of the exact failing network segment.
-Explainability: Provides XAI (Explainable AI) diagnostics for network engineers.
-Visualization: Real-time monitoring of hierarchical outages and cascading effects.
-Scalability: Designed for large-scale telecom deployments.
-🔮 Future Scope
-Integration with live real-world telecom telemetry streams.
-Cloud-scale distributed deployment.
-Predictive maintenance and fault forecasting.
-Full integration with existing ISP/NOC operational systems.
+# Tanfinet Fault Detection
+
+This project is a complete full-stack application designed for network fault detection and analysis, containing:
+
+1. **Frontend**: A React application built with Vite (`frontend`)
+2. **Backend**: An ML-powered FastAPI server (`backend`)
+
+## Project Structure
+
+- `/frontend`: React (Vite) frontend application.
+- `/backend`: Python FastAPI backend driving the ML diagnostics.
+- `start.ps1`: A unified PowerShell script to launch both the frontend and backend simultaneously for local development.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [Python](https://www.python.org/) (v3.9 or higher)
+- pip (Python package installer)
+
+## Installation & Setup
+
+### 1. Backend Setup (FastAPI & ML Engine)
+
+1. Open your terminal and navigate to the backend folder:
+   ```bash
+   cd backend
+   ```
+2. (Optional but recommended) Create and activate a Python virtual environment:
+   ```bash
+   python -m venv venv
+   # On Windows:
+   .\venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
+3. Install the required Python dependencies:
+   ```bash
+   pip install fastapi uvicorn pydantic pandas numpy torch lightning pytorch_forecasting scikit-learn
+   ```
+
+### 2. Frontend Setup (React/Vite)
+
+1. Open a new terminal and navigate to the frontend folder:
+   ```bash
+   cd frontend
+   ```
+2. Install the necessary Node.js dependencies:
+   ```bash
+   npm install
+   ```
+
+## Running the Application Locally
+
+### Option A: The Easy Way (Windows Only)
+
+You can launch both the backend and frontend simultaneously using the provided startup script.
+Simply open a PowerShell window in the root directory (where `start.ps1` is located) and run:
+
+```powershell
+.\start.ps1
+```
+
+### Option B: Manual Startup
+
+If you prefer to run them separately or are not on Windows:
+
+**1. Start the Backend:**
+
+```bash
+cd backend
+python -m uvicorn api:app --reload --port 8000
+```
+
+_The backend will be available at `http://localhost:8000`._
+
+**2. Start the Frontend:**
+Open a second terminal window:
+
+```bash
+cd frontend
+npm run dev
+```
+
+_The React app will be available at `http://localhost:3000`. API calls to `/api` are automatically proxied to the backend._

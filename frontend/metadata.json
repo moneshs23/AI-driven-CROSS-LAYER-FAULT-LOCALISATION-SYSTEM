@@ -1,0 +1,5 @@
+{
+  "name": "NOC Fault Locator",
+  "description": "A neo-brutalist telecom network fault localization dashboard with real-time blinking indicators and hierarchical path visualization.",
+  "requestFramePermissions": []
+}
